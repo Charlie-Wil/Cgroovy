@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song Detail - C'Groovy</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="logo">C'Groovy</a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown-container">
+            <a href="collection.html" class="active">Collection</a>
+            <ul class="dropdown-menu">
+              <li><a href="collection.html#pop">Pop</a></li>
+              <li><a href="collection.html#rnb">R&B</a></li>
+              <li><a href="collection.html#kpop">K-Pop</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="register.html" class="cta-button">Get Started</a>
+        <div class="mobile-toggle" id="mobileToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+
+    
+    <main class="song-detail-page main-content-padding">
+      <div id="songDetailContainer">
+        </div>
+        <div id="descriptionSectionContainer">
+        </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        
+        <div class="footer-column brand-info">
+          <h2 class="footer-logo">C'Groovy</h2>
+          
+          <p class="address">
+            20619 Torrence Chapel Rd<br>
+            Suite #1040<br>
+            Cornelius, NC 28031<br>
+            United States
+          </p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <p class="info-label">Phone number</p>
+              <a href="tel:1-800-201-1019">1-800-201-1019</a>
+            </div>
+            <div class="contact-item">
+              <p class="info-label">Email</p>
+              <a href="mailto:support@skipmatrix.com">support@C'Groovy</a>
+            </div>
+          </div>
+        </div>
+    
+        <div class="footer-column">
+          <h3>Quick links</h3>
+          <ul>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-column">
+          <h3>Social</h3>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Linkedin</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Youtube</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Cookie policy</a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </footer>
+
+    <script src="js/collection.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const songs = [
+    { id: 1, title: "Love Yourself", artist: "Justin Bieber", genre: "pop", description: "A heartfelt acoustic pop song with honest lyrics.", imageUrl: "https://upload.wikimedia.org/wikipedia/id/0/0b/JustinBieberLoveYourself.png", audioSrc: "assets/audio/JustinBieberLoveYourself.mp3", lyrics: "For all the times that you rained on my parade..." },
+    { id: 2, title: "Sorry", artist: "Justin Bieber", genre: "pop", description: "A catchy dancehall-influenced pop tune.", imageUrl: "https://assets.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/indizone/2020/01/14/M7spmQ/t_5e1d91e6f3f88.jpg", audioSrc: "assets/audio/Justin Bieber - Sorry (PURPOSE _ The Movement).mp3", lyrics: "You gotta go and get angry at all of my honesty..." },
+    { id: 3, title: "Blinding Lights", artist: "The Weeknd", genre: "pop", description: "A synthwave-inspired track with an infectious beat.", imageUrl: "https://intime.id/archipelago/wp-content/uploads/2024/08/The-Weeknd-Blinding-Lights.webp", audioSrc: "assets/audio/The Weeknd - Blinding Lights (Official Audio)(1).mp3", lyrics: "I've been trying to call..." },
+    { id: 4, title: "My Boo", artist: "Usher", genre: "rnb", description: "Smooth vocals and bassline for late night sessions.", imageUrl: "https://i.scdn.co/image/ab67616d0000b2734f5b89a63768c7cf88b2e930", audioSrc: "assets/audio/Usher - My Boo (Lyrics) ft. Alicia Keys.mp3", lyrics: "In the midnight hour..." },
+    { id: 5, title: "Snooze", artist: "SZA", genre: "rnb", description: "An emotional track filled with soulful melodies.", imageUrl: "https://i1.sndcdn.com/artworks-ibtMe2npnMtl-0-t500x500.jpg", audioSrc: "assets/audio/SZA - Snooze (Audio).mp3", lyrics: "Echoes of your love..." },
+    { id: 6, title: "Starlight", artist: "LUMINA", genre: "kpop", description: "Upbeat electronic pop with colorful visuals.", imageUrl: "https://i.ytimg.com/vi/ltGTU-GNMXQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGGUgZShlMA8=&rs=AOn4CLB_228h2E5_GchBcZjseF4_tJXrpA", audioSrc: "https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/master/sample.mp3", lyrics: "Shining in the starlight..." },
+    { id: 7, title: "Dynamite", artist: "BTS", genre: "kpop", description: "A globally acclaimed disco-pop song with energy.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNyoXSF5ndUcQK76tpUjy00_lkmEhrAZkvbA&s", audioSrc: "https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/master/sample.mp3", lyrics: "'Cause I, I, I'm in the stars tonight..." }
+  ];
+
+    const songDetailContainer = document.getElementById("songDetailContainer");
+  
+    const descriptionSectionContainer = document.getElementById("descriptionSectionContainer");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const songId = parseInt(urlParams.get('id'));
+    const song = songs.find(s => s.id === songId) || songs[0];
+
+    if (song) {
+        document.title = `${song.title} - C'Groovy`;
+
+        songDetailContainer.innerHTML = `
+            <div class="modern-player">
+                <div class="player-header">
+                    <div class="artist-info">
+                        <div class="artist-name">${song.artist}</div>
+                        <div class="stats">
+                            <span>Listeners <strong>40k</strong></span>
+                            <span>Likes <strong>1.3k</strong></span>
+                            <span>Albums <strong>128</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-body">
+                    <div class="visualizer-container">
+                        <div class="album-art-container">
+                            <img src="${song.imageUrl}" alt="Album Art for ${song.title}" class="album-art">
+                        </div>
+                        <div class="bars-container"></div>
+                    </div>
+                </div>
+                <div class="player-footer">
+                    <div class="track-info">
+                        <span>Now Playing</span>
+                        <div class="track-title">${song.title}</div>
+                    </div>
+                    <div class="controls">
+                        <button id="prevBtn"><i class="fa-solid fa-backward-step"></i></button>
+                        <button id="playPauseBtn"><i class="fa-solid fa-play"></i></button>
+                        <button id="nextBtn"><i class="fa-solid fa-forward-step"></i></button>
+                    </div>
+                    <div class="time-container">
+                        <span id="currentTime">0:00</span> / <span id="totalDuration">0:00</span>
+                    </div>
+                </div>
+                <audio id="audioPlayer" src="${song.audioSrc}"></audio>
+            </div>
+
+            <div class="lyrics-section">
+                <h3>Lyrics</h3>
+                <pre>${song.lyrics}</pre>
+            </div>
+        `;
+
+
+        descriptionSectionContainer.innerHTML = `
+            <h3>About "${song.title}"</h3>
+            <p>${song.description}</p>
+        `;
+
+        setupPlayer();
+        
+        adjustLayout();
+        window.addEventListener('resize', adjustLayout);
+
+    } else {
+        songDetailContainer.innerHTML = "<h2>Song Not Found</h2><p>Sorry, we couldn't find the song you're looking for.</p>";
+    }
+
+    function setupPlayer() {
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = playPauseBtn.querySelector('i');
+        const currentTimeEl = document.getElementById('currentTime');
+        const totalDurationEl = document.getElementById('totalDuration');
+        const barsContainer = document.querySelector('.bars-container');
+        const totalBars = 120;
+        
+        for (let i = 0; i < totalBars; i++) {
+            const bar = document.createElement('div');
+            bar.classList.add('bar');
+            bar.style.transform = `rotate(${i * (360 / totalBars)}deg)`;
+            bar.style.height = `${100 + Math.random() * 50}px`;
+            barsContainer.appendChild(bar);
+        }
+        const bars = document.querySelectorAll('.bar');
+
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            totalDurationEl.textContent = formatTime(audioPlayer.duration);
+        });
+
+        audioPlayer.addEventListener('timeupdate', () => {
+            currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+            const progress = audioPlayer.currentTime / audioPlayer.duration;
+            const activeBarsCount = Math.floor(progress * totalBars);
+
+            bars.forEach((bar, index) => {
+                if (index < activeBarsCount) {
+                    bar.classList.add('active');
+                } else {
+                    bar.classList.remove('active');
+                }
+            });
+        });
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            } else {
+                audioPlayer.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            }
+        });
+    }
+    
+    
+    function adjustLayout() {
+    
+        if (window.innerWidth > 1200) {
+            const player = document.querySelector('.modern-player');
+            const lyrics = document.querySelector('.lyrics-section');
+            if (player && lyrics) {
+                const playerHeight = player.offsetHeight;
+                lyrics.style.height = `${playerHeight}px`;
+            }
+        } else {
+            
+            const lyrics = document.querySelector('.lyrics-section');
+            if (lyrics) {
+                lyrics.style.height = 'auto';
+            }
+        }
+    }
+
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+        return `${minutes}:${secs}`;
+    }
+});
+    </script>
+</body>
+</html>
